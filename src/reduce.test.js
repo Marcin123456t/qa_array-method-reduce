@@ -63,4 +63,13 @@ describe('reduce', () => {
 
     expect(result).toBe(100);
   });
+
+  it('should throw TypeError if callback is not a function', () => {
+    const arr = [1, 2, 3];
+
+    expect(() => arr.reduce2(null)).toThrow(TypeError);
+    expect(() => arr.reduce2(123)).toThrow(TypeError);
+    expect(() => arr.reduce2({})).toThrow(TypeError);
+    expect(() => arr.reduce2('callback')).toThrow(TypeError);
+  });
 });
